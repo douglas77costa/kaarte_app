@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457263876517",
+    "project_id": "kaarte-d4a64",
+    "storage_bucket": "kaarte-d4a64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457263876517:android:4cdb5b0f360417489a004c",
+        "android_client_info": {
+          "package_name": "com.dc.kaarte.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457263876517-rt6be6hbrjk7d90q4ndcdin8nncf4nv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3Tk1tvPgvkzXimtJQrw04FFW-hV6Klww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457263876517-rt6be6hbrjk7d90q4ndcdin8nncf4nv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

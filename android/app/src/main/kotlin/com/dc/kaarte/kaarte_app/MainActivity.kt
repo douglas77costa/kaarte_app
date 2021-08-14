@@ -1,4 +1,4 @@
-package com.dc.kaarte.kaarte_app
+package com.dc.kaarte.app
 
 import io.flutter.embedding.android.FlutterActivity
 
