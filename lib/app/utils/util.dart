@@ -1,8 +1,13 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:kaarte_app/app/data/model/user_model.dart';
 import 'package:kaarte_app/app/shared/components/custom_snackbar/custom_snackbar.dart';
+import 'package:kaarte_app/app/theme/colors.dart';
 import 'package:lottie/lottie.dart';
 
 abstract class Util {
@@ -34,7 +39,7 @@ abstract class Util {
       return true;
     } else {
       if (showMsg) {
-        CustomSnackbar.showSnackbar(
+        CustomSnackbar.showTopSnackbar(
             "Verifique sua conexão com a internet!", context!);
       }
       return false;
@@ -48,8 +53,10 @@ abstract class Util {
         backgroundColor: Colors.white,
         align: Alignment.center,
         toastBuilder: (cancelFunc) {
-          return Lottie.asset('assets/animation/load.json',
-              repeat: true, width: 100, reverse: false);
+          return SpinKitThreeBounce(
+            color: ColorsApp.primary,
+            size: 50.0,
+          );
         });
   }
 
@@ -61,5 +68,20 @@ abstract class Util {
       String error, StackTrace stackTrace, String reason) async {
     await FirebaseCrashlytics.instance
         .recordError(error, stackTrace, reason: reason);
+  }
+
+  static void createUser() async {
+    final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+    UserCredential user = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: "douglas123costa@gmail.com", password: "241512");
+    String id = user.user!.uid;
+    print(id);
+    CollectionReference users = FirebaseFirestore.instance.collection("users");
+    var userModel = UserModel(
+        authId: id,
+        email: "douglas123costa@gmail.com",
+        name: "Douglas Costa",
+        password: "241512");
+    await users.doc(userModel.authId).set(userModel.toJson());
   }
 }

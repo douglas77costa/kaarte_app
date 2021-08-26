@@ -26,7 +26,6 @@ class AppWidget extends StatelessWidget {
         title: 'KaArte',
         getPages: AppPages.pages,
         theme: lightThemeData(context),
-        darkTheme: darkThemeData(context),
         themeMode: ThemeMode.light,
       );
   }

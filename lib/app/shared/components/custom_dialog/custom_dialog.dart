@@ -173,7 +173,7 @@ class _CustomDialogState extends State<CustomDialog> {
           height: 60,
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            color: ColorsApp.primaryLight,
+            color: ColorsApp.primaryLighter,
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20), topLeft: Radius.circular(20)),
           ),

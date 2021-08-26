@@ -4,8 +4,9 @@ abstract class ColorsApp{
 
   static const Color primary = Color(0xFF03a9f4);
   static const Color primaryLight = Color(0xFF67daff);
+  static const Color primaryLighter = Color(0xffb2e9ff);
   static const Color primaryDark = Color(0xFF007ac1);
-  static const Color accent = Color(0xFF1de9b6);
+  static const Color accent = Color(0xff00B686);
 
   static const Color textColorBody = Color(0xFF5F6368);
 

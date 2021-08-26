@@ -1,17 +1,19 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:hive/hive.dart';
 import 'package:kaarte_app/app/app_widget.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
+
+import 'app/data/model/user_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +25,11 @@ void main() async {
       await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
       FirebaseAnalytics analytics = FirebaseAnalytics();
       analytics.setAnalyticsCollectionEnabled(true);
-      FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
-      runApp(AppWidget(fireObserver: observer,));
+      FirebaseAnalyticsObserver observer =
+          FirebaseAnalyticsObserver(analytics: analytics);
+      runApp(AppWidget(
+        fireObserver: observer,
+      ));
     }, FirebaseCrashlytics.instance.recordError);
   });
 }
@@ -39,19 +44,9 @@ Future<void> initApp() async {
 Future<void> initFirebase() async {
   //Init Analytics
   await Firebase.initializeApp();
-  //Init Messaging
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-
 }
 
 Future<void> initHive() async {
-  if (!kIsWeb) {
-    final pathDir = await path_provider.getApplicationDocumentsDirectory();
-    Hive.init(pathDir.path);
-  }
-}
-
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print("Handling a background message: ${message.messageId}");
+  final pathDir = await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(pathDir.path);
 }

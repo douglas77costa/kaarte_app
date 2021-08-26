@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kaarte_app/app/theme/colors.dart';
-import 'package:lottie/lottie.dart';
 
 import 'splash_controller.dart';
 
@@ -17,31 +15,14 @@ class SplashPage extends GetView<SplashController> {
           children: [
             SizedBox(),
             Container(
-              width: 350,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 300,
-                    child: Lottie.asset('assets/images/logo.png',repeat: false),
-                  ),
-                  Container(
-                    width: 250,
-                    margin: EdgeInsets.only(top: 15),
-                    child: Text(
-                      "Consumo na sua Mão!",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color:Colors.white,fontSize: 16),
-                    ),
-                  ),
-                ],
-              ),
+              width: 200,
+              margin: EdgeInsets.only(bottom: 10),
+              child: Image.asset("assets/images/logo.png"),
             ),
             Container(
-              width: 100,
-              margin: EdgeInsets.only(bottom: 10),
-              child: Image.asset("assets/images/live_slogan_white.png"),
-            ),
+              margin: EdgeInsets.only(bottom: 20),
+              child: Text("DC AppLab",style: TextStyle(fontSize: 16),),
+            )
           ],
         ),
       ),

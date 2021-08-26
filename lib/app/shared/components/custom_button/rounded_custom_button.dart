@@ -3,7 +3,6 @@ import 'package:kaarte_app/app/theme/colors.dart';
 
 
 class RoundedCustomButton extends StatelessWidget {
-
   final VoidCallback onPressed;
   final String text;
   final Color color;
@@ -11,9 +10,9 @@ class RoundedCustomButton extends StatelessWidget {
 
   RoundedCustomButton(
       {required this.onPressed,
-      required this.text,
-      required this.color,
-      required this.isSolid});
+        required this.text,
+        required this.color,
+        required this.isSolid});
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +22,18 @@ class RoundedCustomButton extends StatelessWidget {
       child: MaterialButton(
         onPressed: onPressed,
         color: isSolid ? color : Colors.transparent,
+        elevation: 1,
         child: Text(
           text,
           style: TextStyle(
-              color: isSolid ? ColorsApp.primary: color,
+              color: isSolid ? ColorsApp.accent : color,
               fontWeight: FontWeight.bold,
               letterSpacing: 1,
               fontSize: 16),
         ),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(60),
-            side: BorderSide(color: color, width: 1.5)),
+            side: BorderSide(color: ColorsApp.accent, width: 1.5)),
       ),
     );
   }
