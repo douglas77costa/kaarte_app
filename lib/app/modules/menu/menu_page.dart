@@ -17,7 +17,7 @@ class MenuPage extends GetView<MenuController> {
             children: [
               InkWell(
                 onTap: () {
-                 // Get.toNamed(AppRoutes.USER_PROFILE)!.then((value) => controller.getProfile());
+                 Get.toNamed(AppRoutes.PROFILE)!.then((value) => controller.getProfile());
                 },
                 child: Container(
                   width: double.infinity,

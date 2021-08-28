@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:kaarte_app/app/data/model/user_model.dart';
 
 class AuthRepository {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -14,6 +15,20 @@ class AuthRepository {
     UserCredential user = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
     return user;
+  }
+
+  static Future<void> updateEmail(String newEmail, UserModel userModel)async{
+    UserCredential authResult = await getAuthUser()!.reauthenticateWithCredential(
+      EmailAuthProvider.credential(email: userModel.email!, password: userModel.password!),
+    );
+    authResult.user!.updateEmail(newEmail);
+  }
+
+  static Future<void> updatePassword(String newPassword, UserModel userModel)async{
+    UserCredential authResult = await getAuthUser()!.reauthenticateWithCredential(
+      EmailAuthProvider.credential(email: userModel.email!, password: userModel.password!),
+    );
+    authResult.user!.updatePassword(newPassword);
   }
 
   static User? getAuthUser() {

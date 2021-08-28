@@ -81,7 +81,7 @@ abstract class Util {
         authId: id,
         email: "douglas123costa@gmail.com",
         name: "Douglas Costa",
-        password: "241512");
+    );
     await users.doc(userModel.authId).set(userModel.toJson());
   }
 }

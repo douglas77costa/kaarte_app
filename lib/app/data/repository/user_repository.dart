@@ -15,6 +15,10 @@ class UserRepository {
     await users.doc(userModel.authId).set(userModel.toJson());
   }
 
+  static Future<void> updateUserField(UserModel userModel) async {
+    await users.doc(userModel.authId).set(userModel.toJson());
+  }
+
   static Future<UserModel> getUser() async {
     var user = await users.doc(AuthRepository.getAuthUser()!.uid).snapshots().first;
     return UserModel.fromJson(user.data()! as Map<String, dynamic>);

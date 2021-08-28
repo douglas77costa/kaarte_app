@@ -3,6 +3,8 @@ import 'package:kaarte_app/app/modules/home/home_binding.dart';
 import 'package:kaarte_app/app/modules/home/home_page.dart';
 import 'package:kaarte_app/app/modules/login/login_binding.dart';
 import 'package:kaarte_app/app/modules/login/login_page.dart';
+import 'package:kaarte_app/app/modules/profile/profile_binding.dart';
+import 'package:kaarte_app/app/modules/profile/profile_page.dart';
 import 'package:kaarte_app/app/modules/splash/splash_binding.dart';
 import 'package:kaarte_app/app/modules/splash/splash_page.dart';
 
@@ -22,5 +24,9 @@ class AppPages {
         name: AppRoutes.HOME,
         page: () => HomePage(),
         binding: HomeBinding()),
+    GetPage(
+        name: AppRoutes.PROFILE,
+        page: () => ProfilePage(),
+        binding: ProfileBinding()),
   ];
 }

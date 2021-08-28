@@ -34,6 +34,7 @@ dependencies:
   fluentui_system_icons: ^1.1.132
   flutter_statusbarcolor_ns: ^0.3.0-nullsafety
   flutter_spinkit: ^5.0.0
+  brasil_fields: ^1.1.4
 
   flutter:
     sdk: flutter

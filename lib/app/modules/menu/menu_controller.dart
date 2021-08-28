@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kaarte_app/app/data/repository/auth_repository.dart';
@@ -36,11 +37,17 @@ class MenuController extends GetxController {
             cancelOnPressed: () => Get.back(),
             okOnPressed: () async {
               Util.showLoad(context);
-              await AuthRepository.signOut();
+              await singOut();
               Util.hideLoad();
               Get.offAllNamed(AppRoutes.LOGIN);
             },
           );
         });
+  }
+
+  Future<void> singOut()async{
+    await FirebaseFirestore.instance.terminate();
+    await FirebaseFirestore.instance.clearPersistence();
+    await AuthRepository.signOut();
   }
 }
