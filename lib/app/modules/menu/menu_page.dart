@@ -9,7 +9,8 @@ import 'menu_controller.dart';
 class MenuPage extends GetView<MenuController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+        child: Scaffold(
       body: Container(
         child: SingleChildScrollView(
           child: Column(
@@ -17,18 +18,19 @@ class MenuPage extends GetView<MenuController> {
             children: [
               InkWell(
                 onTap: () {
-                 Get.toNamed(AppRoutes.PROFILE)!.then((value) => controller.getProfile());
+                  Get.toNamed(AppRoutes.PROFILE)!
+                      .then((value) => controller.getProfile());
                 },
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.only(
-                      left: 10, right: 5, top: 10, bottom: 0),
+                  padding:
+                      EdgeInsets.only(left: 10, right: 5, top: 10, bottom: 0),
                   child: ListTile(
-                    title: Obx((){
+                    title: Obx(() {
                       return Text(
                         controller.name,
                         style:
-                        TextStyle(color: ColorsApp.primary, fontSize: 22),
+                            TextStyle(color: ColorsApp.primary, fontSize: 22),
                       );
                     }),
                     subtitle: Text(
@@ -71,6 +73,6 @@ class MenuPage extends GetView<MenuController> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

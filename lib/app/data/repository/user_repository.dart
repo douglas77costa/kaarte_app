@@ -1,7 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kaarte_app/app/data/model/user_model.dart';
+import 'package:kaarte_app/app/data/model/user_model/user_model.dart';
 
 import 'auth_repository.dart';
 

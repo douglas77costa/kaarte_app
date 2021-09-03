@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kaarte_app/app/data/model/user_model.dart';
+import 'package:kaarte_app/app/data/model/user_model/user_model.dart';
 
 class AuthRepository {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

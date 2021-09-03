@@ -36,7 +36,7 @@ class MenuController extends GetxController {
             cancelText: "Agora Não",
             cancelOnPressed: () => Get.back(),
             okOnPressed: () async {
-              Util.showLoad(context);
+              Util.showLoad();
               await singOut();
               Util.hideLoad();
               Get.offAllNamed(AppRoutes.LOGIN);

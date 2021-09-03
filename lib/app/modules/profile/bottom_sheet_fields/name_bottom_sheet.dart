@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kaarte_app/app/modules/profile/componentes/appbar_bottom_sheet.dart';
+import 'package:kaarte_app/app/modules/profile/components/appbar_bottom_sheet.dart';
 import 'package:kaarte_app/app/modules/profile/profile_controller.dart';
 
 class NameBottomSheet extends GetView<ProfileController> {

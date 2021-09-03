@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kaarte_app/app/data/model/user_model.dart';
+import 'package:kaarte_app/app/data/model/user_model/user_model.dart';
 import 'package:kaarte_app/app/data/repository/auth_repository.dart';
 import 'package:kaarte_app/app/data/repository/user_repository.dart';
 import 'package:kaarte_app/app/shared/components/custom_snackbar/custom_snackbar.dart';

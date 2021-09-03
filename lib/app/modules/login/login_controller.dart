@@ -14,7 +14,7 @@ class LoginController extends GetxController {
       GlobalKey<FormState> formKey, BuildContext context) async {
     if (formKey.currentState!.validate()) {
       try {
-        Util.showLoad(context);
+        Util.showLoad();
         await AuthRepository.login(email, password);
         Util.hideLoad();
         Get.offAllNamed(AppRoutes.HOME);

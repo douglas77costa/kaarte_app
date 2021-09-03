@@ -13,7 +13,8 @@ import 'package:hive/hive.dart';
 import 'package:kaarte_app/app/app_widget.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
-import 'app/data/model/user_model.dart';
+import 'app/data/model/user_model/user_model.dart';
+import 'app/data/repository/id_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

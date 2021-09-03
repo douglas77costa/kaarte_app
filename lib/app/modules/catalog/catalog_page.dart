@@ -12,10 +12,10 @@ class CatalogPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        elevation: 1,
         backgroundColor: Colors.white,
         title: Text(
-          "CÁTALOGO DE QUADROS",
+          "CÁTALOGO DE PRODUTOS".capitalizeFirst!,
           style: TextStyle(
               color: ColorsApp.textColorBody,
               fontWeight: FontWeight.normal,

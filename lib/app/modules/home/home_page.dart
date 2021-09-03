@@ -2,6 +2,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kaarte_app/app/modules/catalog/catalog_page.dart';
+import 'package:kaarte_app/app/modules/create/create_page.dart';
 import 'package:kaarte_app/app/modules/menu/menu_page.dart';
 import 'package:kaarte_app/app/modules/search/search_page.dart';
 import 'package:kaarte_app/app/theme/colors.dart';
@@ -12,10 +13,9 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Obx(() => Center(
-                child: _pageOptions.elementAt(controller.selectedIndex),
-              ))),
+      body: Obx(() => Center(
+        child: _pageOptions.elementAt(controller.selectedIndex),
+      )),
       bottomNavigationBar: Obx(() => Container(
             padding: EdgeInsets.only(top: 5),
             decoration: BoxDecoration(
@@ -68,7 +68,7 @@ class HomePage extends GetView<HomeController> {
   final List<Widget> _pageOptions = <Widget>[
     CatalogPage(),
     SearchPage(),
-    Container(),
+    CreatePage(),
     MenuPage(),
   ];
 }
