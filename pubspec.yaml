@@ -37,6 +37,9 @@ dependencies:
   brasil_fields: ^1.1.4
   image_picker: ^0.8.3+3
   image_cropper: ^1.4.1
+  cached_network_image: ^3.1.0
+  flutter_cache_manager: ^3.1.2
+  shimmer: ^2.0.0
 
   flutter:
     sdk: flutter

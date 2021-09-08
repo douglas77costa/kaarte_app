@@ -58,28 +58,30 @@ class CreateController extends GetxController {
 
   void saveProduct() async {
     if (formKey.currentState!.validate() && validateImage()) {
-      try {
-        Util.showLoad();
-        await uploadFile();
-        await ProductsRepository.saveProducts(ProductsModel(
-            cod: idProd,
-            description: description,
-            name: name,
-            nameImage: nameImage,
-            pathImage: pathImage,
-            price: price));
-        await IdRepository.incrementId(idProd);
-        await 1.delay();
+      if(await Util.isConnected(Get.context!)){
+        try {
+          Util.showLoad();
+          await uploadFile();
+          await ProductsRepository.saveProducts(ProductsModel(
+              cod: idProd,
+              description: description,
+              name: name,
+              nameImage: nameImage,
+              pathImage: pathImage,
+              price: price));
+          await IdRepository.incrementId(idProd);
+          await 1.delay();
 
-        cleanDataForm();
-        CustomSnackbar.showTopSnackbar("Produto salvos com sucesso!", Get.context!,
-            title: "Tudo certo!", type: SnackType.SUCCESS);
-        Util.hideLoad();
-      } on FirebaseException catch (e) {
-        Util.hideLoad();
-        CustomSnackbar.showTopSnackbar(
-            "Erro ao salvar produto: ${e.message}", Get.context!,
-            type: SnackType.WARNING);
+          cleanDataForm();
+          CustomSnackbar.showTopSnackbar("Produto salvos com sucesso!", Get.context!,
+              title: "Tudo certo!", type: SnackType.SUCCESS);
+          Util.hideLoad();
+        } on FirebaseException catch (e) {
+          Util.hideLoad();
+          CustomSnackbar.showTopSnackbar(
+              "Erro ao salvar produto: ${e.message}", Get.context!,
+              type: SnackType.WARNING);
+        }
       }
     }
   }
