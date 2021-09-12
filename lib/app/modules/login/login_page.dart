@@ -2,7 +2,6 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kaarte_app/app/shared/components/custom_button/rounded_custom_button.dart';
-import 'package:kaarte_app/app/theme/colors.dart';
 
 import 'login_controller.dart';
 

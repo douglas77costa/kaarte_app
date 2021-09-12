@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:kaarte_app/app/data/repository/auth_repository.dart';
 import 'package:kaarte_app/app/routes/app_routes.dart';

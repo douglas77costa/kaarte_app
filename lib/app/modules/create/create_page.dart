@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kaarte_app/app/modules/create/components/bottom_sheet_picker_image.dart';
-import 'package:kaarte_app/app/shared/components/custom_button/rounded_custom_button.dart';
 import 'package:kaarte_app/app/shared/components/custom_dialog/custom_dialog.dart';
 import 'package:kaarte_app/app/shared/constants/constants.dart';
 import 'package:kaarte_app/app/theme/colors.dart';
@@ -103,7 +102,6 @@ class CreatePage extends GetView<CreateController> {
                             alignment: AlignmentDirectional.center,
                             children: [
                               Container(
-                                //padding: EdgeInsets.all(5),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                     color: Colors.white,
@@ -116,8 +114,6 @@ class CreatePage extends GetView<CreateController> {
                                             0, 0), // changes position of shadow
                                       ),
                                     ],
-                                    /*border: Border.all(
-                                        color: Colors.grey.withOpacity(0.7)),*/
                                     borderRadius: BorderRadius.circular(20)),
                               ),
                               controller.image == Constants.NEW_IMAGE_PATH

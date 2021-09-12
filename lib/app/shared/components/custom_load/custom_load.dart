@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kaarte_app/app/theme/colors.dart';
-import 'package:lottie/lottie.dart';
 
 class CustomLoad extends StatelessWidget {
 

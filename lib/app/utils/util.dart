@@ -8,7 +8,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kaarte_app/app/data/model/user_model/user_model.dart';
 import 'package:kaarte_app/app/shared/components/custom_snackbar/custom_snackbar.dart';
 import 'package:kaarte_app/app/theme/colors.dart';
-import 'package:lottie/lottie.dart';
 
 abstract class Util {
   static MaterialColor createMaterialColor(Color color) {

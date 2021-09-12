@@ -1,9 +1,7 @@
 import 'dart:async';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +10,6 @@ import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:hive/hive.dart';
 import 'package:kaarte_app/app/app_widget.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
-
-import 'app/data/model/user_model/user_model.dart';
-import 'app/data/repository/id_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
