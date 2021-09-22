@@ -16,7 +16,7 @@ class ProductItemGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 10, right: 10,top: 15),
+      margin: EdgeInsets.only(left: 10, right: 10, top: 10,bottom: 10),
       width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -33,7 +33,7 @@ class ProductItemGrid extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: Material(
           child: InkWell(
-            onTap: ()=>showCustomButtonSheet(context),
+            onTap: () => showCustomButtonSheet(context),
             child: Column(
               children: [
                 CachedNetworkImage(
@@ -44,12 +44,12 @@ class ProductItemGrid extends StatelessWidget {
                     maxNrOfCacheObjects: 0,
                   )),
                   placeholder: (context, url) {
-                    return SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: SpinKitDoubleBounce(
-                        color: Colors.grey[300],
-                        size: 50.0,
+                    return AspectRatio(
+                      aspectRatio: 16 / 9,
+                      child: SizedBox(
+                        height: 50,
+                        width: 50,
+                        child: CupertinoActivityIndicator(),
                       ),
                     );
                   },
@@ -63,12 +63,12 @@ class ProductItemGrid extends StatelessWidget {
                             style: TextStyle(
                                 color: ColorsApp.accent, fontSize: 16),
                             children: [
-                              TextSpan(
-                                  text: "${productsModel.cod}",
-                                  style: TextStyle(
-                                      color: ColorsApp.accent,
-                                      fontWeight: FontWeight.bold))
-                            ])),
+                          TextSpan(
+                              text: "${productsModel.cod}",
+                              style: TextStyle(
+                                  color: ColorsApp.accent,
+                                  fontWeight: FontWeight.bold))
+                        ])),
                     isThreeLine: true,
                     subtitle: Text("${productsModel.name}"),
                   ),

@@ -13,14 +13,14 @@ class CatalogPage extends GetView<CatalogController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
-          "CÁTALOGO DE PRODUTOS".capitalizeFirst!,
+          "Cátalogo de Quadros",
           style: TextStyle(
-              color: ColorsApp.textColorBody,
+              color: ColorsApp.primary,
               fontWeight: FontWeight.normal,
-              fontSize: 16),
+              fontSize: 18),
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -38,7 +38,6 @@ class CatalogPage extends GetView<CatalogController> {
               child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-
                       childAspectRatio: 16 / 17.5),
                   itemCount: controller.productsList.length,
                   itemBuilder: (context, index) {
