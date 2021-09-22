@@ -15,7 +15,9 @@ class ProductViewBottomSheet extends GetView<ProfileController> {
         margin: EdgeInsets.only(bottom: 40),
         child: Column(
           children: [
+
             Divider(),
+
           ],
         ),
       ),
