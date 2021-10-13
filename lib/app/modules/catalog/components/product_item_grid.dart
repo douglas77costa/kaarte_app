@@ -20,14 +20,10 @@ class ProductItemGrid extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 1.5,
-              blurRadius: 2,
-              offset: Offset(0, 0), // changes position of shadow
-            ),
-          ],
+          border: Border.all(
+              color: ColorsApp.backgroundBody,
+              width:2
+          ),
           borderRadius: BorderRadius.circular(20)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
@@ -85,16 +81,10 @@ class ProductItemGrid extends StatelessWidget {
   void showCustomButtonSheet(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-        ),
         isScrollControlled: true,
         backgroundColor: Colors.white,
         builder: (context) {
-          return SingleChildScrollView(
-            child: ProductViewBottomSheet(),
-          );
+          return SafeArea(child: ProductViewBottomSheet(productsModel));
         });
   }
 }

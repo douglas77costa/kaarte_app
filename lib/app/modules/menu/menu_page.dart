@@ -24,7 +24,7 @@ class MenuPage extends GetView<MenuController> {
                 child: Container(
                   width: double.infinity,
                   padding:
-                      EdgeInsets.only(left: 10, right: 5, top: 10, bottom: 0),
+                      EdgeInsets.only(left: 8, right: 8, top: 10, bottom: 0),
                   child: ListTile(
                     title: Obx(() {
                       return Text(
@@ -52,7 +52,7 @@ class MenuPage extends GetView<MenuController> {
                 child: Container(
                   width: double.infinity,
                   padding:
-                      EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
+                      EdgeInsets.only(left: 8, right: 8, top: 5, bottom: 5),
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundColor: ColorsApp.primaryLighter,

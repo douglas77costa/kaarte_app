@@ -17,15 +17,12 @@ class CatalogPage extends GetView<CatalogController> {
         backgroundColor: Colors.white,
         title: Text(
           "Cátalogo de Quadros",
-          style: TextStyle(
-              color: ColorsApp.primary,
-              fontWeight: FontWeight.normal,
-              fontSize: 18),
+          style: TextStyle(color: ColorsApp.primary, fontSize: 22),
         ),
-        centerTitle: true,
+        centerTitle: false,
         automaticallyImplyLeading: false,
       ),
-      //backgroundColor: Colors.grey[50],
+      //backgroundColor: ColorsApp.backgroundBody,
       body: Obx(() {
         switch (controller.status) {
           case StatusType.LOAD:
@@ -36,6 +33,7 @@ class CatalogPage extends GetView<CatalogController> {
             return Container(
               margin: EdgeInsets.only(left: 0,right: 0),
               child: GridView.builder(
+                  padding: EdgeInsets.only(top: 10,bottom: 10),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 16 / 17.5),

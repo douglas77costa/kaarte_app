@@ -9,6 +9,7 @@ abstract class ColorsApp{
   static const Color accent = Color(0xff00B686);
 
   static const Color textColorBody = Color(0xFF5F6368);
+  static const Color backgroundBody = Color(0xFFEFEFEF);
 
   static const Color blueConnect = Color(0xFF007AFE);
   static const Color blueConnectLight = Color(0xFFC6DFFF);
