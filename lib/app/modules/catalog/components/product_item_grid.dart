@@ -20,10 +20,14 @@ class ProductItemGrid extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(
-              color: ColorsApp.backgroundBody,
-              width:2
-          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.7),
+              spreadRadius: 1.5,
+              blurRadius: 2,
+              offset: Offset(0, 0), // changes position of shadow
+            ),
+          ],
           borderRadius: BorderRadius.circular(20)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
@@ -84,7 +88,7 @@ class ProductItemGrid extends StatelessWidget {
         isScrollControlled: true,
         backgroundColor: Colors.white,
         builder: (context) {
-          return SafeArea(child: ProductViewBottomSheet(productsModel));
+          return ProductViewBottomSheet(productsModel);
         });
   }
 }

@@ -10,11 +10,9 @@ import 'package:kaarte_app/app/shared/components/custom_snackbar/custom_snackbar
 import 'package:kaarte_app/app/shared/components/status_type.dart';
 import 'package:kaarte_app/app/utils/util.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:screenshot/screenshot.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 
 class CatalogController extends GetxController {
-  ScreenshotController screenshotController = ScreenshotController();
 
   final _status = StatusType.LOAD.obs;
   get status => this._status.value;
@@ -48,20 +46,29 @@ class CatalogController extends GetxController {
     }
   }
 
-  void shareProduct() async {
+  void shareProduct(ProductsModel productsModel) async {
     try {
+      status = StatusType.LOAD;
       final directory = (await getExternalStorageDirectory())!.path;
 
-      Uint8List? pngBytes = await screenshotController.capture();
+      final ByteData imageData =
+          await NetworkAssetBundle(Uri.parse(productsModel.pathImage!))
+              .load("");
+      final Uint8List pngBytes = imageData.buffer.asUint8List();
 
-      File imgFile = new File('$directory/screenshot.png');
-      imgFile.writeAsBytes(pngBytes!);
-      Share.shareFiles(
-        ['$directory/screenshot.png'],
-        subject: 'Share ScreenShot',
-        text: 'Hello, check your share files!',
+      File imgFile = new File('$directory/${productsModel.name}.png');
+      await imgFile.writeAsBytes(pngBytes);
+      await Share.shareFiles(
+        ['$directory/${productsModel.name}.png'],
+        subject: 'Compartilhando ${productsModel.name}',
+        text: 'Códido: ${productsModel.cod}\n'
+            'Título da obra: ${productsModel.name}\n'
+            'Descrição: ${productsModel.description}\n\n'
+            'Preço: ${Util.formatCurrency(value:productsModel.price!)}',
       );
-    } on PlatformException catch (e) {
+      status = StatusType.SUCCESS;
+    } catch (e) {
+      status = StatusType.ERROR;
       print("Exception while taking screenshot:" + e.toString());
     }
   }

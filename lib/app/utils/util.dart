@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:intl/intl.dart';
 import 'package:kaarte_app/app/data/model/user_model/user_model.dart';
 import 'package:kaarte_app/app/shared/components/custom_snackbar/custom_snackbar.dart';
 import 'package:kaarte_app/app/theme/colors.dart';
@@ -82,5 +83,10 @@ abstract class Util {
         name: "Douglas Costa",
     );
     await users.doc(userModel.authId).set(userModel.toJson());
+  }
+
+  static String formatCurrency({double value=0.0}){
+    final currency = new NumberFormat.currency(locale: "pt_BR", symbol: "R\$");
+    return currency.format(value);
   }
 }

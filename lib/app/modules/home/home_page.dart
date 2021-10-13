@@ -58,8 +58,7 @@ class HomePage extends GetView<HomeController> {
               selectedItemColor: ColorsApp.primary,
               type: BottomNavigationBarType.fixed,
               onTap: (value) => controller.selectedIndex = value,
-
-              elevation: 1,
+              elevation: 0,
             ),
           )),
     );

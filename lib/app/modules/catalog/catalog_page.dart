@@ -13,7 +13,6 @@ class CatalogPage extends GetView<CatalogController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
           "Cátalogo de Quadros",
@@ -30,18 +29,24 @@ class CatalogPage extends GetView<CatalogController> {
               child: CustomLoad(),
             );
           case StatusType.SUCCESS:
-            return Container(
-              margin: EdgeInsets.only(left: 0,right: 0),
-              child: GridView.builder(
-                  padding: EdgeInsets.only(top: 10,bottom: 10),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 16 / 17.5),
-                  itemCount: controller.productsList.length,
-                  itemBuilder: (context, index) {
-                    return ProductItemGrid(
-                        productsModel: controller.productsList[index]);
-                  }),
+            return Stack(
+              fit: StackFit.expand,
+              children: [
+                Image.asset("assets/images/bg.png",fit:BoxFit.fitWidth,),
+                Container(
+                  margin: EdgeInsets.only(left: 0,right: 0),
+                  child: GridView.builder(
+                      padding: EdgeInsets.only(top: 10,bottom: 10,left: 5,right: 5),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          childAspectRatio: 16 / 17.5),
+                      itemCount: controller.productsList.length,
+                      itemBuilder: (context, index) {
+                        return ProductItemGrid(
+                            productsModel: controller.productsList[index]);
+                      }),
+                )
+              ],
             );
           default:
             return Container();
