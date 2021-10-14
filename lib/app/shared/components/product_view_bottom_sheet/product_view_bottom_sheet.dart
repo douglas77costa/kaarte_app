@@ -9,13 +9,14 @@ import 'package:kaarte_app/app/data/model/products_model/products_model.dart';
 import 'package:kaarte_app/app/modules/profile/profile_controller.dart';
 import 'package:kaarte_app/app/shared/components/custom_button/rounded_custom_button.dart';
 import 'package:kaarte_app/app/shared/components/custom_load/custom_load.dart';
+import 'package:kaarte_app/app/shared/components/product_view_bottom_sheet/product_view_bottom_sheet_controller.dart';
 import 'package:kaarte_app/app/shared/components/status_type.dart';
 import 'package:kaarte_app/app/theme/colors.dart';
 import 'package:kaarte_app/app/utils/util.dart';
 
-import '../catalog_controller.dart';
+import '../../../modules/catalog/catalog_controller.dart';
 
-class ProductViewBottomSheet extends GetView<CatalogController> {
+class ProductViewBottomSheet extends GetView<ProductViewBottomSheetController> {
 
   final double statusBarH = 30;
   static const keyCache = 'customCacheKey';

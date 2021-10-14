@@ -22,14 +22,15 @@ class CatalogController extends GetxController {
 
   @override
   void onReady() {
-    listProducts();
+    getProducts();
     super.onReady();
   }
 
-  void listProducts() async {
+  void getProducts() async {
     if (await Util.isConnected(Get.context!)) {
       try {
         status = StatusType.LOAD;
+        productsList.clear();
         var list = await ProductsRepository.getAllProducts();
         if (list!.isNotEmpty) {
           productsList.addAll(list);
@@ -40,36 +41,10 @@ class CatalogController extends GetxController {
       } on FirebaseException catch (e) {
         status = StatusType.ERROR;
         CustomSnackbar.showTopSnackbar(
-            "Erro ao listar produtos: ${e.message}", Get.context!,
+            "Erro ao listar Quadros: ${e.message}", Get.context!,
             type: SnackType.WARNING);
       }
     }
   }
 
-  void shareProduct(ProductsModel productsModel) async {
-    try {
-      status = StatusType.LOAD;
-      final directory = (await getExternalStorageDirectory())!.path;
-
-      final ByteData imageData =
-          await NetworkAssetBundle(Uri.parse(productsModel.pathImage!))
-              .load("");
-      final Uint8List pngBytes = imageData.buffer.asUint8List();
-
-      File imgFile = new File('$directory/${productsModel.name}.png');
-      await imgFile.writeAsBytes(pngBytes);
-      await Share.shareFiles(
-        ['$directory/${productsModel.name}.png'],
-        subject: 'Compartilhando ${productsModel.name}',
-        text: 'Códido: ${productsModel.cod}\n'
-            'Título da obra: ${productsModel.name}\n'
-            'Descrição: ${productsModel.description}\n\n'
-            'Preço: ${Util.formatCurrency(value:productsModel.price!)}',
-      );
-      status = StatusType.SUCCESS;
-    } catch (e) {
-      status = StatusType.ERROR;
-      print("Exception while taking screenshot:" + e.toString());
-    }
-  }
 }

@@ -73,14 +73,14 @@ abstract class Util {
   static void createUser() async {
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
     UserCredential user = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: "douglas123costa@gmail.com", password: "241512");
+        email: "kauancosta7264@gmail.com", password: "241512");
     String id = user.user!.uid;
     print(id);
     CollectionReference users = FirebaseFirestore.instance.collection("users");
     var userModel = UserModel(
         authId: id,
-        email: "douglas123costa@gmail.com",
-        name: "Douglas Costa",
+        email: "kauancosta7264@gmail.com",
+        name: "Kauan Silva",
     );
     await users.doc(userModel.authId).set(userModel.toJson());
   }

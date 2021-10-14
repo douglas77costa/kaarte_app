@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kaarte_app/app/data/model/products_model/products_model.dart';
-import 'package:kaarte_app/app/modules/catalog/components/product_view_bottom_sheet.dart';
+import 'package:kaarte_app/app/shared/components/product_view_bottom_sheet/product_view_bottom_sheet.dart';
 import 'package:kaarte_app/app/theme/colors.dart';
 
 class ProductItemGrid extends StatelessWidget {

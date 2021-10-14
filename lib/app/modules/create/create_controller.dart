@@ -72,13 +72,13 @@ class CreateController extends GetxController {
           await 1.delay();
 
           cleanDataForm();
-          CustomSnackbar.showTopSnackbar("Produto salvos com sucesso!", Get.context!,
+          CustomSnackbar.showTopSnackbar("Quadro salvos com sucesso!", Get.context!,
               title: "Tudo certo!", type: SnackType.SUCCESS);
           Util.hideLoad();
         } on FirebaseException catch (e) {
           Util.hideLoad();
           CustomSnackbar.showTopSnackbar(
-              "Erro ao salvar produto: ${e.message}", Get.context!,
+              "Erro ao salvar quadro: ${e.message}", Get.context!,
               type: SnackType.WARNING);
         }
       }

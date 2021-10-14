@@ -19,4 +19,14 @@ class ProductsRepository {
         .toList();
     return list;
   }
+
+  /*static Future<List<ProductsModel>?> searchProducts(String query) async {
+    QuerySnapshot querySnapshot =
+        await products.where("cod", arrayContains: query).s.get();
+    var map = querySnapshot.docs.map((doc) => doc.data());
+    var list = map
+        .map((dynamic i) => ProductsModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return list;
+  }*/
 }

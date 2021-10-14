@@ -1,6 +1,7 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kaarte_app/app/modules/catalog/catalog_controller.dart';
 import 'package:kaarte_app/app/modules/catalog/catalog_page.dart';
 import 'package:kaarte_app/app/modules/create/create_page.dart';
 import 'package:kaarte_app/app/modules/menu/menu_page.dart';
@@ -10,6 +11,7 @@ import 'package:kaarte_app/app/theme/colors.dart';
 import 'home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
+  final controllerCatalog = Get.find<CatalogController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,10 +56,15 @@ class HomePage extends GetView<HomeController> {
               unselectedItemColor: Colors.black54,
               unselectedLabelStyle: TextStyle(color: Colors.black54),
               unselectedFontSize: 12,
-              selectedFontSize: 13,
+              selectedFontSize: 12,
               selectedItemColor: ColorsApp.primary,
               type: BottomNavigationBarType.fixed,
-              onTap: (value) => controller.selectedIndex = value,
+              onTap: (value){
+                controller.selectedIndex = value;
+                if(value ==0){
+                  controllerCatalog.getProducts();
+                }
+              },
               elevation: 0,
             ),
           )),

@@ -11,6 +11,8 @@ import 'package:hive/hive.dart';
 import 'package:kaarte_app/app/app_widget.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
+import 'app/utils/util.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initApp();
@@ -35,6 +37,7 @@ Future<void> initApp() async {
   await FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
   await initFirebase();
   await initHive();
+  //Util.createUser();
 }
 
 Future<void> initFirebase() async {
